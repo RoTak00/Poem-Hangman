@@ -1,0 +1,533 @@
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 8vh;
+  margin-top: 2vh;
+}
+
+header div h1 {
+  text-align: center;
+  font-size: 5vh;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+@-webkit-keyframes slideInFromLeft50 {
+  0% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft50 {
+  0% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes slideInFromRight50 {
+  0% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight50 {
+  0% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes animOpacityToOpaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animOpacityToOpaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animOpacityToTransparent {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animOpacityToTransparent {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes moveUpDown {
+  0% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 70px;
+  }
+}
+
+@keyframes moveUpDown {
+  0% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 70px;
+  }
+}
+
+@-webkit-keyframes enlargeText {
+  0% {
+    font-size: 15px;
+  }
+  100% {
+    font-size: 20px;
+  }
+}
+
+@keyframes enlargeText {
+  0% {
+    font-size: 15px;
+  }
+  100% {
+    font-size: 20px;
+  }
+}
+
+.game {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 75vh;
+  max-height: 75vh;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.game__poem {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.game__poem p {
+  margin-bottom: 0.2em;
+  margin-top: 0px;
+  text-align: center;
+  -webkit-animation: 1s ease 0s 1 slideInFromLeft50, 1s linear 0.3s 1 animOpacityToOpaque backwards;
+          animation: 1s ease 0s 1 slideInFromLeft50, 1s linear 0.3s 1 animOpacityToOpaque backwards;
+}
+
+.game__poem__word {
+  color: black;
+  display: inline-block;
+  position: relative;
+}
+
+.game__poem__word--matched {
+  color: green;
+}
+
+.game__poem__word--highlight {
+  font-weight: bolder;
+}
+
+.game__poem__word__overlay {
+  position: absolute;
+  word-wrap: none;
+  text-align: center;
+  vertical-align: middle;
+  top: 0px;
+  left: 0px;
+  color: black;
+  -webkit-animation: 0.2s ease-in-out 0s enlargeText, 0.2s linear 0s 1 animOpacityToTransparent forwards;
+          animation: 0.2s ease-in-out 0s enlargeText, 0.2s linear 0s 1 animOpacityToTransparent forwards;
+}
+
+.game__scrollpointer {
+  position: absolute;
+  right: 100px;
+  bottom: 20px;
+  background-color: transparent;
+  -webkit-animation: 1.5s ease 0s infinite animOpacityToOpaque both, 0.75s ease 0s infinite moveUpDown both;
+          animation: 1.5s ease 0s infinite animOpacityToOpaque both, 0.75s ease 0s infinite moveUpDown both;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+.game__scrollpointer span {
+  font-size: 5em;
+  color: #00000055;
+  vertical-align: baseline;
+}
+
+.game__hidescrollbar {
+  position: absolute;
+  height: 100%;
+  right: -5px;
+  width: 20px;
+  background-color: #eeeeee;
+}
+
+.game button {
+  display: block;
+  width: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  height: 4em;
+  border: 3px solid black;
+  color: black;
+  border-radius: 1em;
+  border-width: 3px;
+  font-size: 1.3em;
+  -webkit-transition: color 0.1s, border-color 0.1s, width 0.1s;
+  transition: color 0.1s, border-color 0.1s, width 0.1s;
+}
+
+.game button:hover {
+  color: #000052;
+  border-color: #000052;
+  width: 22em;
+  -webkit-transition: color 0.2s, border-color 0.5s 0.1s, width 0.2s;
+  transition: color 0.2s, border-color 0.5s 0.1s, width 0.2s;
+}
+
+.game button:disabled {
+  color: gray;
+  border-color: gray;
+  width: 20em;
+  -webkit-transition: color 0.2s, border-color 0.5s 0.1s, width 0.2s;
+  transition: color 0.2s, border-color 0.5s 0.1s, width 0.2s;
+}
+
+.game__input {
+  width: 40em;
+  max-width: 40em;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5em;
+  -webkit-animation: 1s ease 0s 1 slideInFromLeft50, 1s linear 0.3s 1 animOpacityToOpaque backwards;
+          animation: 1s ease 0s 1 slideInFromLeft50, 1s linear 0.3s 1 animOpacityToOpaque backwards;
+  background: transparent;
+}
+
+.game__input input {
+  width: 100%;
+  text-align: center;
+  height: 10vh;
+  font-size: 3vh;
+  background: transparent;
+  border: 1px solid #00000050;
+  border-radius: 2%;
+  -webkit-transition: 0.1s linear 0s font-size;
+  transition: 0.1s linear 0s font-size;
+}
+
+.game__input input:focus {
+  border: 1px solid #00000050;
+  background: transparent;
+  border-radius: 2%;
+  font-size: 3.2vh;
+  outline: none;
+  -webkit-transition: 0.1s linear 0s font-size;
+  transition: 0.1s linear 0s font-size;
+  caret-color: #00000050;
+}
+
+.game__input--dissapearing {
+  -webkit-animation: 0.5s ease 0s 1 slideToBottom both, 0.5s linear 0s 1 animOpacityToTransparent forwards;
+          animation: 0.5s ease 0s 1 slideToBottom both, 0.5s linear 0s 1 animOpacityToTransparent forwards;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.game__startbutton {
+  padding-bottom: 1em;
+  -webkit-animation: 1s ease 0s 1 slideInFromLeft50, 1s linear 0.3s 1 animOpacityToOpaque backwards;
+          animation: 1s ease 0s 1 slideInFromLeft50, 1s linear 0.3s 1 animOpacityToOpaque backwards;
+}
+
+.game__startbutton--dissapearing {
+  -webkit-animation: 0.3s ease 0.2s 1 slideToBottom both, 0.5s linear 0s 1 animOpacityToTransparent forwards;
+          animation: 0.3s ease 0.2s 1 slideToBottom both, 0.5s linear 0s 1 animOpacityToTransparent forwards;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.game__playagainbutton {
+  padding-bottom: 1em;
+  -webkit-animation: 1s ease 0s 1 slideInFromLeft50, 1s linear 0.3s 1 animOpacityToOpaque backwards;
+          animation: 1s ease 0s 1 slideInFromLeft50, 1s linear 0.3s 1 animOpacityToOpaque backwards;
+}
+
+.game__results--center {
+  background-color: #eeeeeedd;
+  -webkit-animation: 0.55s linear 0.2s 1 animOpacityToOpaque backwards;
+          animation: 0.55s linear 0.2s 1 animOpacityToOpaque backwards;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.game__results--center p {
+  text-align: center;
+  font-size: 5vh;
+  font-weight: bolder;
+}
+
+.game__results--bottomright {
+  font-size: 2vh;
+  text-align: right;
+  padding-right: 2vw;
+  padding-bottom: 2vh;
+  -webkit-animation: 0.5s linear 0s 1 animOpacityToOpaque backwards;
+          animation: 0.5s linear 0s 1 animOpacityToOpaque backwards;
+}
+
+.game__results--disappearing {
+  -webkit-animation: 0.5s linear 0s 1 animOpacityToTransparent forwards;
+          animation: 0.5s linear 0s 1 animOpacityToTransparent forwards;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.game__guessedwords {
+  width: 35vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 80px;
+  margin-right: 10px;
+}
+
+.game__guessedwords__title {
+  position: absolute;
+  top: 30px;
+  text-align: center;
+  width: 25vw;
+}
+
+.game__guessedwords p {
+  position: relative;
+  display: block;
+  background: lightgray;
+  text-align: center;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  -webkit-animation: 1s ease 0s 1 slideInFromRight50, 1s linear 0.1s 1 animOpacityToOpaque backwards;
+          animation: 1s ease 0s 1 slideInFromRight50, 1s linear 0.1s 1 animOpacityToOpaque backwards;
+  margin: 5px 5px 0px 0px;
+  width: 125px;
+  word-wrap: break-word;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.game__guessedwords p.--highlight {
+  font-weight: bolder;
+  background: white;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.game__guessedwords p.--isClicked {
+  background: gray;
+  -webkit-transition: all 0.25 ease;
+  transition: all 0.25 ease;
+}
+
+@-webkit-keyframes slideInFromLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.fixedcontainer__bottomleft {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+
+.fixedcontainer__bottomright {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
+.fixedcontainer__bottom {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.fixedcontainer__topright {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+.fixedcontainer__center {
+  position: fixed;
+  left: 20vw;
+  right: 20vw;
+  top: 30vh;
+  bottom: 30vh;
+}
+
+.poeminfo {
+  width: 30em;
+  min-height: 5em;
+  padding: 1em 1em 2em 2em;
+  -webkit-animation: 0.5s ease 0.5s 1 slideInFromLeft backwards, 0.5s linear 0.2s 1 animOpacityToOpaque backwards;
+          animation: 0.5s ease 0.5s 1 slideInFromLeft backwards, 0.5s linear 0.2s 1 animOpacityToOpaque backwards;
+}
+
+@-webkit-keyframes slideToBottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@keyframes slideToBottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+.counter {
+  width: 10em;
+  min-height: 5em;
+  padding: 1em 2em 2em 1em;
+  -webkit-animation: 0.5s ease 1s 1 slideInFromLeft backwards, 0.5s linear 1.2s 1 animOpacityToOpaque backwards;
+          animation: 0.5s ease 1s 1 slideInFromLeft backwards, 0.5s linear 1.2s 1 animOpacityToOpaque backwards;
+}
+
+.counter p {
+  font-size: 3em;
+  text-align: center;
+}
+
+div.alert {
+  position: fixed;
+  font-size: 5vw;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #c27d7dee;
+}
+
+div.alert__fullscreen {
+  top: 2vh;
+  bottom: 2vh;
+  left: 2vh;
+  right: 2vh;
+}
+/*# sourceMappingURL=App.css.map */
